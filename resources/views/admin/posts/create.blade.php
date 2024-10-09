@@ -22,13 +22,14 @@
                             <span class="text-danger">{{ $message }}</span> 
                         @enderror
                     </div>
-                    <div class="col-12">
-                        <label for="" class="control-label">Immagine</label>
+                    <div class="col-12 my-2">
+                        <label for="" class="control-label"><strong>Immagine :</strong></label>
                         <input type="file" name="cover_image" id="cover_image" class="form-control form-control-sm">
                     </div>
                     <div class="col-12 my-2">
-                        <label for="" class="control-label">Seleziona Tipologia</label>
-                        <select name="type" id="" class="form-select form-select-sm">
+                        <label for="" class="control-label"><strong>Seleziona Tipologia :</strong></label>
+                        <select name="type_id" id="" class="form-select form-select-sm" required>
+                            <option value="">Seleziona Tipologia</option>
                             @foreach($types as $type)
                                 <option value="{{$type->id}}">{{ $type->name }}</option>
                             @endforeach

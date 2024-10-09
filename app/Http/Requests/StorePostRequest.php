@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
 
 class StorePostRequest extends FormRequest
 {
@@ -28,6 +30,7 @@ class StorePostRequest extends FormRequest
             'content' => ['required','min:10'],
             // 'slug' => 'required|max:255'
             'cover_image' => ['nullable', 'image', 'max:4084'],
+            'type_id' => ['nullable', Rule::exists('types', 'id')],
             
         ];
     }
@@ -41,6 +44,7 @@ class StorePostRequest extends FormRequest
             'content.min' => 'Il contenuto deve contenere almeno 10 caratteri.',
             'cover_image.image' => 'Tipologia file immagine',
             'cover_image.max' => 'Max size 4084 kb',
+            'type_id.exists' => 'Tipologia inesistente',
             // 'slug.required' => 'Obbligatorio inserire un titolo per lo slug.',
             // 'slug.max' => 'Lo slug non può superare i 255 caratteri.',
         ];

@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'content', 'cover_image'];
+    protected $fillable = ['title', 'slug', 'content', 'cover_image', 'type_id'];
 
     public static function generateSlug($title){
         return Str::slug($title, '-');
