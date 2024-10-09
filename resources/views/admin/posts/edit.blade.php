@@ -34,6 +34,15 @@
                         <input type="file" name="cover_image" id="cover_image" class="form-control form-control-sm">
                      </div>
                     </div>
+                    <div class="col-12 my-2">
+                        <label for="" class="control-label"><strong>Seleziona Tipologia :</strong></label>
+                        <select name="type_id" id="" class="form-select form-select-sm" required>
+                            <option value="">Seleziona Tipologia</option>
+                            @foreach($types as $type)
+                                <option value="{{$type->id}}" @selected($type->id == old ('type_id'))>{{ $type->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group my-3">
                         <label for="content" class="control-label"><strong>Contenuto :</strong></label>
                         <textarea class="form-control form-control-sm w-100 textarea-sm" name="content" id="content-post" placeholder="Inserisci il contenuto">{{ old('content', $post->content) }}</textarea>
