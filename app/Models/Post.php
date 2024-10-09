@@ -15,4 +15,8 @@ class Post extends Model
     public static function generateSlug($title){
         return Str::slug($title, '-');
     }
+    // creo relazione
+    public function type(){
+        return $this->belongsTo(Type::class);
+    }
 }
