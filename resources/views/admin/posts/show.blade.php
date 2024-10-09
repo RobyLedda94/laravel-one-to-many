@@ -18,6 +18,13 @@
                 <div class="card-body">
                     <h5 class="card-title">{{$post->title}}</h5>
                     <p class="card-text">{{$post->slug}}</p>
+                    <p class="card-text">    
+                        @if($post->type)
+                            {{ $post->type->name }}
+                        @else
+                        <span class="text-danger">Tipo non disponibile</span>
+                        @endif
+                    </p>
                     <p class="card-text">{{$post->content}}</p>
                 </div>
                 <div class="card-footer text-muted">
